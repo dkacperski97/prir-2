@@ -57,6 +57,7 @@ int main (int argc, char** argv) {
 	sigaction(SIGHUP, &hup, NULL);
 
 	sigemptyset(&mask); /* Wyczyść maskę */
+	sigaddset(&mask, SIGTSTP);
 	sigprocmask(SIG_BLOCK, &mask, NULL); /* Ustaw maskę dla całego procesu */
 
 	printf("PID: %d\n", my_pid);
